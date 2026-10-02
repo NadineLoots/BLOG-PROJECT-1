@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Blog</title>
+
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="hero">
+
+        <nav>
+
+            <a href="/" class="logo">
+                MY BLOG.
+            </a>
+
+            <a href="/create" class="nav-button">
+                + New Post
+            </a>
+
+        </nav>
+
+
+        <div class="hero-content">
+
+            <p class="eyebrow">
+                PERSONAL JOURNAL
+            </p>
+
+            <h1>
+                Thoughts worth
+                <span>sharing.</span>
+            </h1>
+
+            <p class="hero-text">
+                Stories, ideas and little things worth remembering.
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- POSTS HEADER -->
+        <section class="posts-header">
+
+            <div>
+
+                <p class="section-label">
+                    THE JOURNAL
+                </p>
+
+                <h2>
+                    Latest thoughts
+                </h2>
+
+            </div>
+
+
+            <a href="/create" class="create-button">
+                Write something →
+            </a>
+
+        </section>
+
+
+        <!-- POSTS -->
+        <section class="posts">
+
+            <% if (posts.length === 0) { %>
+
+                <!-- EMPTY BLOG -->
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        ✦
+                    </div>
+
+                    <h3>
+                        Nothing here yet.
+                    </h3>
+
+                    <p>
+                        Your first story is waiting to be written.
+                    </p>
+
+                    <a href="/create">
+                        Create your first post →
+                    </a>
+
+                </div>
+
+            <% } %>
+
+
+            <% posts.forEach((post, index) => { %>
+
+                <!-- SINGLE POST -->
+                <article class="post">
+
+                    <div class="post-number">
+
+                        <span>
+                            <%= String(index + 1).padStart(2, "0") %>
+                        </span>
+
+                    </div>
+
+
+                    <!-- POST IMAGE -->
+                    <% if (post.image) { %>
+
+                        <img
+                            src="<%= post.image %>"
+                            alt="<%= post.title %>"
+                            class="post-image"
+                        >
+
+                    <% } %>
+
+
+                    <!-- POST CONTENT -->
+                    <div class="post-content">
+
+                        <p class="date">
+                            <%= post.date %>
+                        </p>
+
+
+                        <h2>
+                            <%= post.title %>
+                        </h2>
+
+
+                        <p class="post-text">
+                            <%= post.content %>
+                        </p>
+
+
+                        <!-- EDIT + DELETE -->
+                        <div class="post-actions">
+
+                            <a
+                                href="/edit/<%= post.id %>"
+                                class="edit-button"
+                            >
+                                Edit
+                            </a>
+
+
+                            <form
+                                action="/delete/<%= post.id %>"
+                                method="POST"
+                            >
+
+                                <button
+                                    type="submit"
+                                    class="delete-button"
+                                >
+                                    Delete
+                                </button>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            <% }) %>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            MY BLOG.
+        </p>
+
+        <span>
+            Stories, thoughts & everything in between.
+        </span>
+
+    </footer>
+
+</body>
+
+</html>
+

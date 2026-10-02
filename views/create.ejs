@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Post | My Blog</title>
+
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="hero small-hero">
+
+        <nav>
+
+            <a href="/" class="logo">
+                MY BLOG.
+            </a>
+
+            <a href="/" class="nav-button">
+                ← Back Home
+            </a>
+
+        </nav>
+
+        <div class="hero-content">
+
+            <p class="eyebrow">
+                NEW ENTRY
+            </p>
+
+            <h1>
+                Tell your
+                <span>story.</span>
+            </h1>
+
+            <p class="hero-text">
+                Write something worth remembering.
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main>
+
+        <section class="form-intro">
+
+            <p class="section-label">
+                CREATE A POST
+            </p>
+
+            <h2>
+                What's on your mind?
+            </h2>
+
+            <p>
+                Give your post a title, write your thoughts,
+                and add a photo if you want.
+            </p>
+
+        </section>
+
+
+        <!-- CREATE FORM -->
+        <form
+            action="/create"
+            method="POST"
+            enctype="multipart/form-data"
+            class="post-form"
+        >
+
+            <!-- TITLE -->
+            <div class="form-group">
+
+                <label for="title">
+                    Post title
+                </label>
+
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    placeholder="Give your post a title..."
+                    required
+                >
+
+            </div>
+
+
+            <!-- CONTENT -->
+            <div class="form-group">
+
+                <label for="content">
+                    Your story
+                </label>
+
+                <textarea
+                    id="content"
+                    name="content"
+                    rows="12"
+                    placeholder="Start writing..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <!-- IMAGE -->
+            <div class="form-group">
+
+                <label for="image">
+                    Add a photo
+                    <span class="optional">(optional)</span>
+                </label>
+
+                <div class="file-upload">
+
+                    <input
+                        type="file"
+                        id="image"
+                        name="image"
+                        accept="image/*"
+                    >
+
+                    <label for="image" class="file-label">
+                        📸 Choose a photo
+                    </label>
+
+                    <p>
+                        JPG, PNG, GIF or WEBP
+                    </p>
+
+
+                    <!-- PHOTO PREVIEW -->
+                    <div
+                        id="image-preview-container"
+                        style="display: none; margin-top: 20px;"
+                    >
+
+                        <img
+                            id="image-preview"
+                            src=""
+                            alt="Selected photo preview"
+                            style="
+                                width: 180px;
+                                height: 180px;
+                                object-fit: cover;
+                                border-radius: 50%;
+                                display: block;
+                                margin: 0 auto;
+                            "
+                        >
+
+                        <p
+                            id="image-name"
+                            style="
+                                margin-top: 10px;
+                                color: #666;
+                            "
+                        ></p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+            <div class="form-buttons">
+
+                <a href="/" class="cancel-button">
+                    Cancel
+                </a>
+
+                <button type="submit">
+                    Publish Post →
+                </button>
+
+            </div>
+
+        </form>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            MY BLOG.
+        </p>
+
+        <span>
+            Stories, thoughts & everything in between.
+        </span>
+
+    </footer>
+
+
+    <!-- PHOTO PREVIEW SCRIPT -->
+    <script>
+
+        const imageInput = document.getElementById("image");
+        const previewContainer = document.getElementById("image-preview-container");
+        const preview = document.getElementById("image-preview");
+        const imageName = document.getElementById("image-name");
+
+        imageInput.addEventListener("change", function () {
+
+            const file = this.files[0];
+
+            if (file) {
+
+                const imageURL = URL.createObjectURL(file);
+
+                preview.src = imageURL;
+
+                imageName.textContent = file.name;
+
+                previewContainer.style.display = "block";
+
+            } else {
+
+                previewContainer.style.display = "none";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>

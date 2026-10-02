@@ -1,0 +1,542 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f1ea;
+    color: #202020;
+    line-height: 1.6;
+}
+
+.hero {
+    background: #202020;
+    color: white;
+    padding: 25px 6% 90px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border: 2px solid white;
+    border-radius: 50%;
+    top: -280px;
+    left: -120px;
+    opacity: 0.08;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border: 2px solid white;
+    border-radius: 50%;
+    bottom: -250px;
+    right: -100px;
+    opacity: 0.08;
+}
+
+nav {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.nav-button {
+    color: white;
+    text-decoration: none;
+    border: 1px solid #555;
+    padding: 9px 17px;
+    border-radius: 25px;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.nav-button:hover {
+    background: white;
+    color: #202020;
+}
+
+.hero-content {
+    max-width: 1100px;
+    margin: 100px auto 0;
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow,
+.section-label {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.eyebrow {
+    color: #aaa;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 8vw, 95px);
+    line-height: 0.95;
+    letter-spacing: -5px;
+    max-width: 800px;
+}
+
+.hero h1 span {
+    color: #aaa;
+}
+
+.hero-text {
+    margin-top: 25px;
+    color: #bdbdbd;
+    font-size: 18px;
+    max-width: 500px;
+}
+
+.small-hero {
+    padding-bottom: 65px;
+}
+
+.small-hero .hero-content {
+    margin-top: 70px;
+}
+
+.small-hero h1 {
+    font-size: clamp(45px, 7vw, 75px);
+}
+
+
+/* MAIN */
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 60px auto;
+}
+
+
+/* POSTS HEADER */
+
+.posts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 30px;
+    margin-bottom: 35px;
+}
+
+.section-label {
+    color: #999;
+    margin-bottom: 8px;
+}
+
+.posts-header h2,
+.form-intro h2 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    line-height: 1.1;
+}
+
+.create-button {
+    display: inline-block;
+    background: #202020;
+    color: white;
+    text-decoration: none;
+    padding: 13px 21px;
+    border-radius: 30px;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: 0.2s ease;
+}
+
+.create-button:hover {
+    transform: translateY(-3px);
+}
+
+
+/* POSTS */
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.post {
+    background: white;
+    border: 1px solid #e1ddd4;
+    border-radius: 18px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 55px 180px 1fr;
+    align-items: center;
+    padding: 25px;
+    gap: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    transition: 0.25s ease;
+}
+
+.post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.09);
+}
+
+.post-number {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.post-number span {
+    color: #aaa;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* PHOTO */
+
+.post-image {
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+
+/* POST CONTENT */
+
+.post-content {
+    min-width: 0;
+}
+
+.date {
+    color: #999;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.post h2 {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    line-height: 1.15;
+    margin-bottom: 12px;
+}
+
+.post-text {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.7;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+
+/* ACTIONS */
+
+.post-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.post-actions form {
+    margin: 0;
+}
+
+.edit-button,
+.delete-button {
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 9px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.edit-button {
+    background: #202020;
+    color: white;
+}
+
+.delete-button {
+    background: transparent;
+    color: #777;
+    border: 1px solid #ddd;
+}
+
+.delete-button:hover {
+    background: #f1f1f1;
+}
+
+
+/* EMPTY */
+
+.empty-state {
+    background: white;
+    border: 1px dashed #ccc;
+    border-radius: 18px;
+    text-align: center;
+    padding: 80px 25px;
+}
+
+.empty-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.empty-state h3 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.empty-state a {
+    color: #202020;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+/* FORMS */
+
+.form-intro {
+    max-width: 700px;
+    margin-bottom: 35px;
+}
+
+.form-intro > p:last-child {
+    color: #777;
+    margin-top: 12px;
+}
+
+.post-form {
+    background: white;
+    border: 1px solid #e1ddd4;
+    border-radius: 18px;
+    padding: 35px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.post-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 9px;
+}
+
+.optional {
+    color: #999;
+    font-weight: normal;
+    font-size: 13px;
+}
+
+.post-form input,
+.post-form textarea {
+    width: 100%;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 14px;
+    border: 1px solid #d5d1c8;
+    border-radius: 9px;
+    outline: none;
+    background: #faf9f6;
+}
+
+.post-form input:focus,
+.post-form textarea:focus {
+    border-color: #202020;
+    background: white;
+}
+
+.post-form textarea {
+    resize: vertical;
+    min-height: 220px;
+}
+
+
+/* UPLOAD */
+
+.file-upload {
+    border: 1px dashed #c8c4bb;
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    background: #faf9f6;
+}
+
+.file-upload input {
+    display: none;
+}
+
+.file-label {
+    display: inline-block !important;
+    background: #202020;
+    color: white;
+    padding: 11px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.file-upload p {
+    color: #999;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+
+/* BUTTONS */
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.form-buttons button {
+    border: none;
+    background: #202020;
+    color: white;
+    padding: 13px 22px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cancel-button {
+    color: #666;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* FOOTER */
+
+footer {
+    margin-top: 90px;
+    padding: 35px 20px;
+    border-top: 1px solid #ddd8ce;
+    text-align: center;
+}
+
+footer p {
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+footer span {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+    font-size: 12px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .hero {
+        padding: 20px 5% 65px;
+    }
+
+    .hero-content {
+        margin-top: 75px;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .posts-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .create-button {
+        text-align: center;
+    }
+
+    .post {
+        grid-template-columns: 40px 1fr;
+        padding: 20px;
+    }
+
+    .post-image {
+        grid-column: 2;
+        width: 150px;
+        height: 150px;
+        margin-bottom: 5px;
+    }
+
+    .post-content {
+        grid-column: 2;
+    }
+
+    .post h2 {
+        font-size: 27px;
+    }
+
+    .post-form {
+        padding: 23px;
+    }
+
+    .form-buttons {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .form-buttons button,
+    .cancel-button {
+        text-align: center;
+        width: 100%;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    .nav-button {
+        font-size: 12px;
+        padding: 8px 13px;
+    }
+}
